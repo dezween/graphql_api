@@ -2,7 +2,7 @@
 
 1. Склонируйте репозиторий: git clone "https://github.com/dezween/graphql_api.git"
 
-2. 2. Установите Docker, если у вас его нет. Вы можете загрузить его [отсюда](https://www.docker.com/get-started).
+2. Установите Docker, если у вас его нет. Вы можете загрузить его [отсюда](https://www.docker.com/get-started).
 
 3. Перейдите в директорию с проектом: cd <название_директории>
 
