@@ -10,10 +10,10 @@ WORKDIR /app
 
 # Install dependencies
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt waitress
 
 # Copy the current directory contents into the container at /app
 COPY . .
 
 # Run the application
-CMD ["waitress-serve", "--call", "wsgi:create_app"]
+CMD ["waitress-serve", "--port=5000", "--call", "wsgi:create_app"]
