@@ -1,17 +1,19 @@
-# Используем официальный образ Python 3.10
+# Use the official Python image as a base image
 FROM python:3.10
 
-# Устанавливаем рабочую директорию в /app
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Set the working directory in the container
 WORKDIR /app
 
-# Копируем файл зависимостей в рабочую директорию
+# Install dependencies
 COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Устанавливаем зависимости
-RUN pip install -r requirements.txt
-
-# Копируем все файлы из текущей директории в рабочую директорию
+# Copy the current directory contents into the container at /app
 COPY . .
 
-# Запускаем приложение
-CMD ["python", "app.py"]
+# Run the application
+CMD ["waitress-serve", "--call", "wsgi:create_app"]

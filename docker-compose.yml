@@ -1,11 +1,9 @@
-version: '3'
+version: '3.8'
 
 services:
-  graphql:
+  app:
     build: .
     ports:
       - "8000:8000"
     volumes:
       - .:/app
-    environment:
-      - PYTHONUNBUFFERED=1
